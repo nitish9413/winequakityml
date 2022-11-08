@@ -107,9 +107,18 @@ user_input = [[fixed_acidity, volatile_acidity, citric_acid, residual_sugar, chl
 # Scale the user input
 user_input = sc.transform(user_input)
 
+# button to predict the quality
+if st.button('Predict'):
+    if classifier == 'Logistic Regression':
+        st.write(trained_models['Logistic Regression'].predict(user_input))
+    elif classifier == 'Decision Tree':
+        st.write(trained_models['Decision Tree'].predict(user_input))
+    elif classifier == 'Random Forest':
+        st.write(trained_models['Random Forest'].predict(user_input))
+    else:
+        st.write(trained_models['SVM'].predict(user_input))
 # Show the predicted quality
-st.subheader('Predicted Quality')
-st.write(str(trained_models[classifier].predict(user_input)))
+
 
 # Show the probability of each class
 st.subheader('Prediction Probability')
