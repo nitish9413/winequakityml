@@ -1,10 +1,7 @@
 sklearn
 pandas
 numpy
-#tensorflow
-pickle
 matplotlib
 seaborn
 streamlit
 plotly
-scikit-plot
