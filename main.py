@@ -1,6 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+    # svm
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+import pickle
 
 st.title('Wine Quality Prediction')
 
@@ -24,7 +31,7 @@ X = df.iloc[:, 0:11].values
 Y = df.iloc[:, 11].values
 
 # Split the dataset into 75% Training set and 25% Testing set
-from sklearn.model_selection import train_test_split
+
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
 
 # Feature Scaling
@@ -38,14 +45,9 @@ df['quality'] = [1 if x>=7 else 0 for x in df['quality']]
 
 # Create a function with many Machine Learning Models
 def get_models():
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.tree import DecisionTreeClassifier
-    from sklearn.ensemble import RandomForestClassifier
-    # svm
-    from sklearn.svm import SVC
+    
     models = {}
     models['Logistic Regression'] = LogisticRegression()
-    models['Decision Tree'] = DecisionTreeClassifier()
     models['Random Forest'] = RandomForestClassifier()
     models['SVM'] = SVC()
     return models
@@ -115,7 +117,7 @@ st.subheader('Prediction Probability')
 st.write(str(trained_models[classifier].predict_proba(user_input)))
 
 # Save the model
-import pickle
+
 pickle.dump(trained_models[classifier], open('model.pkl', 'wb'))
 
 # Load the model that you want to use
