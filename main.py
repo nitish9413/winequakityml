@@ -40,7 +40,7 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 # convert quality into 2 classes
-df['quality'] = [1 if x>=7 else 0 for x in df['quality']]
+df['quality'] = [1 if x>5 else 0 for x in df['quality']]
 
 # Create a function with many Machine Learning Models
 def get_models():
