@@ -120,9 +120,7 @@ if st.button('Predict'):
 # Show the predicted quality
 
 
-# Show the probability of each class
-st.subheader('Prediction Probability')
-st.write(str(trained_models[classifier].predict_proba(user_input)))
+
 
 # Save the model
 
