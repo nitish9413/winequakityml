@@ -1,7 +1,7 @@
 sklearn
 pandas
 numpy
-tensorflow
+#tensorflow
 pickle
 matplotlib
 seaborn
