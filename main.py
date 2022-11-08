@@ -79,7 +79,7 @@ accuracy = get_accuracy(trained_models, X_train, Y_train, X_test, Y_test)
 
 # Show the models as a dropdown
 st.subheader('Select Classifier')
-classifier = st.selectbox('Classifier', ('Logistic Regression', 'Decision Tree', 'Random Forest', 'SVM'))
+classifier = st.selectbox('Classifier', ('Logistic Regression', 'Random Forest', 'SVM'))
 
 # Show the accuracy of the selected model
 st.subheader('Model Accuracy')
